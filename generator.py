@@ -1,4 +1,16 @@
+##############################################################################
+# Name:           generator.py
+# Author:         Xander Palermo <ajp2s@missouristate.edu>
+# Description:    Randomly generates data to be used to train and test Linear Regression Models
+#                  Using set weights
+# Date:           30 January 2026
+#
+# Class:          CSC 537: Deep Learning
+# Professor:      Mukulika Ghosh
+# Assignment:     Assignment 1
+##############################################################################
 import numpy as np
+
 
 np.random.seed(1)
 
@@ -10,7 +22,13 @@ std = 1
 
 dimensions = 5
 
-def generate_data (size : int, name : str ):
+def generate_data (size : int, name : str ) -> None:
+    """
+    Generates data according to a normal gaussian distribution
+    :param size: the amount of data to be generated
+    :param name: the file name to be saved
+    :return: None
+    """
     # generate the random data
     noise_vector = np.random.normal(distribution, std, size)
     feature_matrix = np.random.normal(distribution, std, (size, dimensions))
@@ -41,5 +59,5 @@ def generate_data (size : int, name : str ):
 
 if __name__ == "__main__":
     # Generate random datasets of set sizes and save them
-    generate_data (6000, "lg_data")
-    generate_data (2000, "sm_data")
+    generate_data (6000, "training_data")
+    generate_data (2000, "testing_data")

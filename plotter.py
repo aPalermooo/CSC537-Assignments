@@ -158,7 +158,7 @@ def exp_2 () -> None:
 
     # independent variable
     iv = "Learning Rate"
-    learn_rates = [0.01, 0.5, 0.1, 0.2]
+    learn_rates = [0.01, 0.05, 0.1, 0.2]
 
     df = pd.DataFrame(columns=['Iteration', iv, 'Loss'])
 
@@ -250,7 +250,7 @@ def exp_4 () -> None:
 
     # independent variable
     iv = "Weight Decay"
-    hyper_params = [0, 0.001 ]
+    hyper_params = [0, 0.001]
 
     print("\t generating models...")
 

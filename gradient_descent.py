@@ -114,7 +114,6 @@ def gradient_descent( X : np.ndarray, Y : np.ndarray, w_init : np.ndarray,
     """
     # init counting variables
     iterations = 0
-    epoches = 0
 
     prev_loss = 0.0
     max_loss = -np.inf
@@ -162,7 +161,6 @@ def gradient_descent( X : np.ndarray, Y : np.ndarray, w_init : np.ndarray,
 
         # prepare for next epoch
         prev_loss = max_loss
-        epoches += 1
 
         #end epoch
 
@@ -183,6 +181,8 @@ def test_weights(X, Y, log, hyperparam = 0.0):
         l2 = gen_l2(w, hyperparam)
         loss = mse + l2
 
+
+        output.weights_data.append(w.copy())
         output.loss_data.append(loss)
         output.mse_data.append(mse)
         output.l2_data.append(l2)

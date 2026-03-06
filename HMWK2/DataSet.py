@@ -1,7 +1,7 @@
 ##############################################################################
-# Name:           generator.py
+# Name:           DataSet.py
 # Author:         Xander Palermo <ajp2s@missouristate.edu>
-# Description:    Randomly generates data
+# Description:
 # Date:           6 March 2026
 #
 # Class:          CSC 537: Deep Learning

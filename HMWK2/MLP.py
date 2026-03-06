@@ -9,6 +9,7 @@
 # Assignment:     Assignment 2
 ##############################################################################
 import datetime
+from statistics import mean
 
 import numpy as np
 import torch.nn
@@ -105,40 +106,39 @@ def train(
         model : torch.nn.Module,
         data : DataLoader,
         optimizer : torch.optim.Optimizer,
-        classification : bool,
+        is_classification : bool,
         l2 : float = 0.,
+        alpha : float = 0.,
 ):
     timestamp = datetime.now().strftime("%Y%m%d-%H%M%S")
     writer = SummaryWriter(log_dir=f"runs/{timestamp}")
 
-    TOTAL_EPOCHS = 10
+    TOTAL_EPOCHS = 1000
     loss_tracker = []
 
-    if classification:
+    if is_classification:
         loss_fn = torch.nn.CrossEntropyLoss()
     else:   #is Regression Model
         loss_fn = torch.nn.MSELoss()
 
+
+    # per epoch
     for epoch in range(TOTAL_EPOCHS):
         print(f"Epoch {epoch+1}/{TOTAL_EPOCHS}")
         model.train()
 
         loss_per_epoch = []
 
-        # per epoch
-        for inputs, _, targets in data:
-            if classification:
-                targets = targets.long()
-            else:
-                targets = targets.unsqueeze(1)
-
+        # per batch
+        for inputs, class_targets, reg_targets in data:
             optimizer.zero_grad()
 
             outputs = model(inputs)
-            loss = loss_fn(outputs, targets)
+            loss = loss_fn(outputs, class_targets.long() if is_classification else reg_targets.unsqueeze(1))
             if l2 != 0.:
-                reg = sum(p.pow(2).sum() for p in model.parameters())
-                loss += l2 * reg
+                # l2 is enabled
+                decay = sum(p.pow(2).sum() for p in model.parameters())
+                loss += l2 * decay
 
             loss.backward()
 
@@ -147,11 +147,41 @@ def train(
             loss_per_epoch.append(loss.item())
 
         writer.add_scalar("Loss/train", np.mean(loss_per_epoch), epoch)
-        loss_tracker.extend(loss_per_epoch)
+        loss_tracker.append(mean(loss_per_epoch))
 
     writer.close()
     return model, loss_tracker
 
 
-def evaluate():
-    print("Hello World")
+def evaluate(
+        model: torch.nn.Module,
+        data: DataLoader,
+        is_classification: bool,
+):
+    model.eval()
+
+    loss_tracker = []
+    correct = 0
+    total = 0
+
+    if is_classification:
+        loss_fn = torch.nn.CrossEntropyLoss()
+    else:   #is Regression Model
+        loss_fn = torch.nn.MSELoss()
+
+    with torch.no_grad():
+        for inputs, class_targets, reg_targets in data:
+            outputs = model(inputs)
+            loss = loss_fn(outputs, class_targets.long() if is_classification else reg_targets.unsqueeze(1))
+            loss_tracker.append(loss.item())
+
+            if is_classification:
+                prediction = torch.argmax(outputs, dim=1)
+                correct += (prediction == class_targets.long()).sum().item()
+                total += class_targets.size(0)
+
+    if is_classification:
+        accuracy = correct / total
+        return loss_tracker, accuracy
+    else:
+        return loss_tracker

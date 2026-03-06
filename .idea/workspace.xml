@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4e74f2a8-0b76-4ec9-b2cb-ba90a87d8b63" name="Changes" comment="initial MLP creation (and documentation)">
+    <list default="true" id="4e74f2a8-0b76-4ec9-b2cb-ba90a87d8b63" name="Changes" comment="delete custom data class">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HMWK2/DataSet.py" beforeDir="false" afterPath="$PROJECT_DIR$/HMWK2/DataSet.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HMWK2/generator.py" beforeDir="false" afterPath="$PROJECT_DIR$/HMWK2/generator.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HMWK2/mlp.py" beforeDir="false" afterPath="$PROJECT_DIR$/HMWK2/MLP.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HMWK2/MLP.py" beforeDir="false" afterPath="$PROJECT_DIR$/HMWK2/MLP.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,6 +64,9 @@
     &quot;accountId&quot;: &quot;0a193c07-d0bc-4e77-8d5d-6eec92ff5949&quot;
   }
 }</component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 0
 }</component>
@@ -314,7 +315,23 @@
       <option name="project" value="LOCAL" />
       <updated>1772767812032</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="train function complete (no doc)">
+      <option name="closed" value="true" />
+      <created>1772774212710</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1772774212710</updated>
+    </task>
+    <task id="LOCAL-00020" summary="delete custom data class">
+      <option name="closed" value="true" />
+      <created>1772774231799</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1772774231799</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -351,7 +368,9 @@
     <MESSAGE value="rebase" />
     <MESSAGE value="restructure tree" />
     <MESSAGE value="initial MLP creation (and documentation)" />
-    <option name="LAST_COMMIT_MESSAGE" value="initial MLP creation (and documentation)" />
+    <MESSAGE value="train function complete (no doc)" />
+    <MESSAGE value="delete custom data class" />
+    <option name="LAST_COMMIT_MESSAGE" value="delete custom data class" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

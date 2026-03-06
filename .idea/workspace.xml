@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4e74f2a8-0b76-4ec9-b2cb-ba90a87d8b63" name="Changes" comment="delete custom data class">
+    <list default="true" id="4e74f2a8-0b76-4ec9-b2cb-ba90a87d8b63" name="Changes" comment="train and evaluate implementations">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/HMWK2/MLP.py" beforeDir="false" afterPath="$PROJECT_DIR$/HMWK2/MLP.py" afterDir="false" />
     </list>
@@ -331,7 +331,15 @@
       <option name="project" value="LOCAL" />
       <updated>1772774231799</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="train and evaluate implementations">
+      <option name="closed" value="true" />
+      <created>1772777599597</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1772777599597</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -370,7 +378,8 @@
     <MESSAGE value="initial MLP creation (and documentation)" />
     <MESSAGE value="train function complete (no doc)" />
     <MESSAGE value="delete custom data class" />
-    <option name="LAST_COMMIT_MESSAGE" value="delete custom data class" />
+    <MESSAGE value="train and evaluate implementations" />
+    <option name="LAST_COMMIT_MESSAGE" value="train and evaluate implementations" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

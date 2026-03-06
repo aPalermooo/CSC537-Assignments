@@ -9,10 +9,10 @@
 # Assignment:     Assignment 2
 ##############################################################################
 import datetime
-from statistics import mean
 
 import numpy as np
 import torch.nn
+from torch.nn import Module
 from torch.utils.data import DataLoader
 from torch.utils.tensorboard import SummaryWriter
 
@@ -108,12 +108,25 @@ def train(
         optimizer : torch.optim.Optimizer,
         is_classification : bool,
         l2 : float = 0.,
-        alpha : float = 0.,
-):
+        TOTAL_EPOCHS : int = 1000,
+) -> tuple[Module, list[float]]:
+    """
+    Trains a model on a given set of data given a set of customizable parameters
+    :param model: The model to be trained
+    :type model: torch.nn.Module
+    :param data: The features and target values to be used for training
+    :type data: DataLoader
+    :param optimizer: the torch optimizer to be used for training
+    :type optimizer: torch.optim.Optimizer
+    :param is_classification: True if model is simulating a classification problem.
+                                False if is simulation a regression problem.
+    :param l2: Amount of weight decay to be applied to weights in each epoch
+    :param TOTAL_EPOCHS: Number of epoches to train the data (no early stop)
+    :return: the trained model and a list of avg. loss for each epoch
+    """
     timestamp = datetime.now().strftime("%Y%m%d-%H%M%S")
     writer = SummaryWriter(log_dir=f"runs/{timestamp}")
 
-    TOTAL_EPOCHS = 1000
     loss_tracker = []
 
     if is_classification:
@@ -127,7 +140,7 @@ def train(
         print(f"Epoch {epoch+1}/{TOTAL_EPOCHS}")
         model.train()
 
-        loss_per_epoch = []
+        loss_per_epoch : list[float] = []
 
         # per batch
         for inputs, class_targets, reg_targets in data:
@@ -147,7 +160,7 @@ def train(
             loss_per_epoch.append(loss.item())
 
         writer.add_scalar("Loss/train", np.mean(loss_per_epoch), epoch)
-        loss_tracker.append(mean(loss_per_epoch))
+        loss_tracker.append(np.mean(loss_per_epoch))
 
     writer.close()
     return model, loss_tracker
@@ -157,10 +170,21 @@ def evaluate(
         model: torch.nn.Module,
         data: DataLoader,
         is_classification: bool,
-):
+) -> tuple[list[float], float] | list[float]:
+    """
+    Evaluates a given model on its performance on unseen data
+    :param model: The model to be evaluated
+    :type model: torch.nn.Module
+    :param data: The features and target values to be used for evaluation
+    :pre: Data has not been yet used to train the model
+    :type data: DataLoader
+    :param is_classification: True if model is simulating a classification problem.
+                                False if is simulation a regression problem.
+    :return: The calculated loss of each sample. (if is classification problem, returns accuracy as well)
+    """
     model.eval()
 
-    loss_tracker = []
+    loss_tracker : list[float] = []
     correct = 0
     total = 0
 
@@ -175,7 +199,7 @@ def evaluate(
             loss = loss_fn(outputs, class_targets.long() if is_classification else reg_targets.unsqueeze(1))
             loss_tracker.append(loss.item())
 
-            if is_classification:
+            if is_classification:       #save statistics for accuracy evaluation
                 prediction = torch.argmax(outputs, dim=1)
                 correct += (prediction == class_targets.long()).sum().item()
                 total += class_targets.size(0)

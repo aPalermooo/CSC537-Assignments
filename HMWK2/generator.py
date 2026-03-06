@@ -24,7 +24,7 @@ training_size = 2000
 batch_size = 64
 
 
-def gen_features() -> tuple[DataLoader[tuple[Tensor, ...]], DataLoader[tuple[Tensor, ...]]]:
+def gen_data() -> tuple[DataLoader[tuple[Tensor, ...]], DataLoader[tuple[Tensor, ...]]]:
     """
     Generates data sets for regression and classification to a Gaussian Distribution of features
     :return: Training and Testing DataLoaders
@@ -71,4 +71,4 @@ def gen_features() -> tuple[DataLoader[tuple[Tensor, ...]], DataLoader[tuple[Ten
 
 
 if __name__ == "__main__":
-    gen_features()
+    gen_data()

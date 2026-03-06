@@ -85,7 +85,7 @@ def exp_1 () -> None:
 
     print("Staring Experiment 1...")
 
-    "\t initializing..."
+    print("\t initializing...")
     # const
     learn_rate = 0.05
     batch_size = 64

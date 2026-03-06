@@ -8,7 +8,7 @@
 # Professor:      Mukulika Ghosh
 # Assignment:     Assignment 2
 ##############################################################################
-import datetime
+from datetime import datetime
 
 import numpy as np
 import torch.nn
@@ -107,8 +107,10 @@ def train(
         data : DataLoader,
         optimizer : torch.optim.Optimizer,
         is_classification : bool,
-        l2 : float = 0.,
         TOTAL_EPOCHS : int = 1000,
+        l2 : float = 0.,
+        thresh : float = float('-inf'),
+        verbose : bool = False
 ) -> tuple[Module, list[float]]:
     """
     Trains a model on a given set of data given a set of customizable parameters
@@ -120,14 +122,17 @@ def train(
     :type optimizer: torch.optim.Optimizer
     :param is_classification: True if model is simulating a classification problem.
                                 False if is simulation a regression problem.
-    :param l2: Amount of weight decay to be applied to weights in each epoch
+    :param l2: [Optional] Amount of weight decay to be applied to weights in each epoch
     :param TOTAL_EPOCHS: Number of epoches to train the data (no early stop)
+    :param thresh: [Optional] Maximum amount of loss between epochs to cause early stopping
+    :param verbose: If true, turns on debugging printing
     :return: the trained model and a list of avg. loss for each epoch
     """
     timestamp = datetime.now().strftime("%Y%m%d-%H%M%S")
     writer = SummaryWriter(log_dir=f"runs/{timestamp}")
 
     loss_tracker = []
+    prev_loss = 100.
 
     if is_classification:
         loss_fn = torch.nn.CrossEntropyLoss()
@@ -137,7 +142,8 @@ def train(
 
     # per epoch
     for epoch in range(TOTAL_EPOCHS):
-        print(f"Epoch {epoch+1}/{TOTAL_EPOCHS}")
+        if verbose and epoch % 100 == 0:
+            print(f"\t\tEpoch {epoch+1}/{TOTAL_EPOCHS}")
         model.train()
 
         loss_per_epoch : list[float] = []
@@ -159,8 +165,16 @@ def train(
 
             loss_per_epoch.append(loss.item())
 
-        writer.add_scalar("Loss/train", np.mean(loss_per_epoch), epoch)
-        loss_tracker.append(np.mean(loss_per_epoch))
+        avg_loss = np.mean(loss_per_epoch)
+        writer.add_scalar("Loss/train", avg_loss, epoch)
+        loss_tracker.append(avg_loss)
+
+        if verbose and epoch % 100 == 0:
+            print(f"\t\t\t{avg_loss=}")
+
+        if abs(prev_loss - avg_loss) < thresh: #stopping condition
+            break
+        prev_loss = avg_loss
 
     writer.close()
     return model, loss_tracker

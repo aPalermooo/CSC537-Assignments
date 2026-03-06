@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4e74f2a8-0b76-4ec9-b2cb-ba90a87d8b63" name="Changes" comment="restructure tree">
-      <change afterPath="$PROJECT_DIR$/HMWK2/mlp.py" afterDir="false" />
+    <list default="true" id="4e74f2a8-0b76-4ec9-b2cb-ba90a87d8b63" name="Changes" comment="initial MLP creation (and documentation)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/HMWK2/DataSet.py" beforeDir="false" afterPath="$PROJECT_DIR$/HMWK2/DataSet.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HMWK2/generator.py" beforeDir="false" afterPath="$PROJECT_DIR$/HMWK2/generator.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HMWK2/mlp.py" beforeDir="false" afterPath="$PROJECT_DIR$/HMWK2/MLP.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -305,7 +306,15 @@
       <option name="project" value="LOCAL" />
       <updated>1772688443664</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="initial MLP creation (and documentation)">
+      <option name="closed" value="true" />
+      <created>1772767812032</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1772767812032</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -341,7 +350,8 @@
     <MESSAGE value="generator complete" />
     <MESSAGE value="rebase" />
     <MESSAGE value="restructure tree" />
-    <option name="LAST_COMMIT_MESSAGE" value="restructure tree" />
+    <MESSAGE value="initial MLP creation (and documentation)" />
+    <option name="LAST_COMMIT_MESSAGE" value="initial MLP creation (and documentation)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -11,20 +11,23 @@
 ##############################################################################
 import numpy as np
 import torch
+from torch import Tensor
+from torch.utils.data import TensorDataset, DataLoader
 
-from HMWK2.DataSet import DataSet
+## init constants
 
 np.random.seed(0)
 number_samples = 2500
 number_dimensions = 10
 
 training_size = 2000
+batch_size = 64
 
 
-def gen_features():
+def gen_features() -> tuple[DataLoader[tuple[Tensor, ...]], DataLoader[tuple[Tensor, ...]]]:
     """
     Generates data sets for regression and classification to a Gaussian Distribution of features
-    :return: Training and Testing DataSets
+    :return: Training and Testing DataLoaders
     """
     print("Generating data...")
 
@@ -49,11 +52,20 @@ def gen_features():
     targets = torch.sin(X @ w) + 0.1 * (X.norm(dim=1)**2) + epsilon #output
 
     # divide data sets
-    training_set = DataSet(X[:training_size], classifications[:training_size], targets[:training_size])
-    test_set = DataSet(X[training_size:], classifications[training_size:], targets[training_size:])
+    training_set = TensorDataset(
+        (X[:training_size] - X[:training_size].mean(dim=0)) / X[:training_size].std(dim=0),     # normalize input features (0 mean, unit variance)
+        classifications[:training_size],
+        targets[:training_size]
+    )
 
-    # normalize input features (0 mean, unit variance)
-    training_set.features = (training_set.features - training_set.features.mean(dim=0)) / training_set.features.std(dim=0)
+    test_set = TensorDataset(
+        X[training_size:],
+        classifications[training_size:],
+        targets[training_size:]
+    )
+
+    training_set = DataLoader(training_set, batch_size=batch_size, shuffle=True)
+    test_set = DataLoader(test_set, batch_size=batch_size, shuffle=True)
 
     return training_set, test_set
 

@@ -311,7 +311,7 @@ def exp_3() -> None:
     g = gen_plot(dv, experiment_number, experiment_title, independent_variables, results)
 
     # plt.show()
-    save_plot(g, experiment_number, experiment_title)
+    save_plot(g, experiment_number, experiment_title, " - Regression")
 
     # Architecture 2: Classification
     results = []
@@ -380,7 +380,7 @@ def exp_4() -> None:
     g = gen_plot(dv, experiment_number, experiment_title, independent_variables, results)
 
     # plt.show()
-    save_plot(g, experiment_number, experiment_title)
+    save_plot(g, experiment_number, experiment_title, " - Regression")
 
     # Architecture 2: Classification
     results = []
@@ -424,7 +424,7 @@ def main() -> None:
     exp_2()
     exp_3()
     exp_4()
-    plt.show()
+    # plt.show()
 
 if __name__ == "__main__":
     main()

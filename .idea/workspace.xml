@@ -1,10 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4e74f2a8-0b76-4ec9-b2cb-ba90a87d8b63" name="Changes" comment="Experiment 1 Complete">
+    <list default="true" id="4e74f2a8-0b76-4ec9-b2cb-ba90a87d8b63" name="Changes" comment="documentation complete">
+      <change afterPath="$PROJECT_DIR$/HMWK2/log.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HMWK2/plots/exp_1/Activation Function.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/HMWK2/MLP.py" beforeDir="false" afterPath="$PROJECT_DIR$/HMWK2/MLP.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HMWK2/plots/exp_1/Activation Function - Classification.png" beforeDir="false" afterPath="$PROJECT_DIR$/HMWK2/plots/exp_1/Activation Function - Classification.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HMWK2/plots/exp_1/Activation Function - Regression.png" beforeDir="false" afterPath="$PROJECT_DIR$/HMWK2/plots/exp_1/Activation Function - Regression.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HMWK2/plots/exp_2/Depth vs. Width - Classification.png" beforeDir="false" afterPath="$PROJECT_DIR$/HMWK2/plots/exp_2/Depth vs. Width - Classification.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HMWK2/plots/exp_2/Depth vs. Width - Regression.png" beforeDir="false" afterPath="$PROJECT_DIR$/HMWK2/plots/exp_2/Depth vs. Width - Regression.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HMWK2/plots/exp_2/Depth vs. Width- Classification.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/HMWK2/plots/exp_2/Depth vs. Width- Regression.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/HMWK2/plots/exp_3/Optimizers - Classification.png" beforeDir="false" afterPath="$PROJECT_DIR$/HMWK2/plots/exp_3/Optimizers - Classification.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HMWK2/plots/exp_3/Optimizers.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/HMWK2/plots/exp_4/Regularization - Classification.png" beforeDir="false" afterPath="$PROJECT_DIR$/HMWK2/plots/exp_4/Regularization - Classification.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HMWK2/plots/exp_4/Regularization.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/HMWK2/plotter.py" beforeDir="false" afterPath="$PROJECT_DIR$/HMWK2/plotter.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HMWK2/report draft.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/HMWK2/~$port draft.docx" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -388,7 +401,15 @@
       <option name="project" value="LOCAL" />
       <updated>1772839749811</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="documentation complete">
+      <option name="closed" value="true" />
+      <created>1772852033597</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1772852033597</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -430,7 +451,8 @@
     <MESSAGE value="train and evaluate implementations" />
     <MESSAGE value="document functions" />
     <MESSAGE value="Experiment 1 Complete" />
-    <option name="LAST_COMMIT_MESSAGE" value="Experiment 1 Complete" />
+    <MESSAGE value="documentation complete" />
+    <option name="LAST_COMMIT_MESSAGE" value="documentation complete" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

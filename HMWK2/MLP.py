@@ -202,11 +202,13 @@ def evaluate(
     correct = 0
     total = 0
 
+    # set loss function
     if is_classification:
         loss_fn = torch.nn.CrossEntropyLoss()
     else:   #is Regression Model
         loss_fn = torch.nn.MSELoss()
 
+    # evaluate
     with torch.no_grad():
         for inputs, class_targets, reg_targets in data:
             outputs = model(inputs)
@@ -219,6 +221,7 @@ def evaluate(
                 total += class_targets.size(0)
 
     if is_classification:
+        # additional statistic can be calculated and returned
         accuracy = correct / total
         return loss_tracker, accuracy
     else:

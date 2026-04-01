@@ -1,5 +1,5 @@
 ##############################################################################
-# Name:           generator.py
+# Name:           unpacker.py
 # Author:         Xander Palermo <ajp2s@missouristate.edu>
 # Description:    Randomly generates data for Classification and Regression as per
 #                   the formulas described in the assignment details

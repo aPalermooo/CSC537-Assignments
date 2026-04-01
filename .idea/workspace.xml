@@ -1,23 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4e74f2a8-0b76-4ec9-b2cb-ba90a87d8b63" name="Changes" comment="documentation complete">
-      <change afterPath="$PROJECT_DIR$/HMWK2/log.txt" afterDir="false" />
+    <list default="true" id="4e74f2a8-0b76-4ec9-b2cb-ba90a87d8b63" name="Changes" comment="homework 3 init commit">
+      <change afterPath="$PROJECT_DIR$/HMWK3/cnn.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HMWK3/plotter.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HMWK3/unpacker.ipynb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HMWK3/unpacker.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HMWK2/MLP.py" beforeDir="false" afterPath="$PROJECT_DIR$/HMWK2/MLP.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HMWK2/plots/exp_1/Activation Function - Classification.png" beforeDir="false" afterPath="$PROJECT_DIR$/HMWK2/plots/exp_1/Activation Function - Classification.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HMWK2/plots/exp_1/Activation Function - Regression.png" beforeDir="false" afterPath="$PROJECT_DIR$/HMWK2/plots/exp_1/Activation Function - Regression.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HMWK2/plots/exp_2/Depth vs. Width - Classification.png" beforeDir="false" afterPath="$PROJECT_DIR$/HMWK2/plots/exp_2/Depth vs. Width - Classification.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HMWK2/plots/exp_2/Depth vs. Width - Regression.png" beforeDir="false" afterPath="$PROJECT_DIR$/HMWK2/plots/exp_2/Depth vs. Width - Regression.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HMWK2/plots/exp_2/Depth vs. Width- Classification.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/HMWK2/plots/exp_2/Depth vs. Width- Regression.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/HMWK2/plots/exp_3/Optimizers - Classification.png" beforeDir="false" afterPath="$PROJECT_DIR$/HMWK2/plots/exp_3/Optimizers - Classification.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HMWK2/plots/exp_3/Optimizers.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/HMWK2/plots/exp_4/Regularization - Classification.png" beforeDir="false" afterPath="$PROJECT_DIR$/HMWK2/plots/exp_4/Regularization - Classification.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HMWK2/plots/exp_4/Regularization.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/HMWK2/plotter.py" beforeDir="false" afterPath="$PROJECT_DIR$/HMWK2/plotter.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HMWK2/report draft.docx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/HMWK2/~$port draft.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/HMWK2/generator.py" beforeDir="false" afterPath="$PROJECT_DIR$/HMWK2/generator.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,6 +18,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Python Script" />
+        <option value="Jupyter Notebook" />
       </list>
     </option>
   </component>
@@ -89,33 +80,34 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;Python.generator.executor&quot;: &quot;Run&quot;,
-    &quot;Python.gradient_descent.executor&quot;: &quot;Run&quot;,
-    &quot;Python.logger.executor&quot;: &quot;Run&quot;,
-    &quot;Python.plotter.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/apale/Documents/NeuralNetwork/HMWK1&quot;,
-    &quot;run.code.analysis.last.selected.profile&quot;: &quot;aDefault&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;vcs.log&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "Python.generator.executor": "Run",
+    "Python.gradient_descent.executor": "Run",
+    "Python.logger.executor": "Run",
+    "Python.plotter.executor": "Run",
+    "Python.unpacker.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "master",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "C:/Users/apale/Documents/NeuralNetwork/HMWK3",
+    "run.code.analysis.last.selected.profile": "aDefault",
+    "settings.editor.selected.configurable": "vcs.log"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\apale\Documents\NeuralNetwork\HMWK3" />
       <recent name="C:\Users\apale\Documents\NeuralNetwork\HMWK1" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\apale\Documents\NeuralNetwork\HMWK1" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.plotter">
+  <component name="RunManager" selected="Python.unpacker">
     <configuration name="generator" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="NeuralNetwork" />
       <option name="ENV_FILES" value="" />
@@ -186,8 +178,32 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="unpacker" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="NeuralNetwork" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/HMWK3" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="RUN_TOOL" value="" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/HMWK3/unpacker.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.unpacker" />
         <item itemvalue="Python.plotter" />
         <item itemvalue="Python.generator" />
         <item itemvalue="Python.generator" />
@@ -409,7 +425,15 @@
       <option name="project" value="LOCAL" />
       <updated>1772852033597</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="homework 3 init commit">
+      <option name="closed" value="true" />
+      <created>1774994488804</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1774994488804</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -452,7 +476,8 @@
     <MESSAGE value="document functions" />
     <MESSAGE value="Experiment 1 Complete" />
     <MESSAGE value="documentation complete" />
-    <option name="LAST_COMMIT_MESSAGE" value="documentation complete" />
+    <MESSAGE value="homework 3 init commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="homework 3 init commit" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

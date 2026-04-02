@@ -12,9 +12,12 @@ from typing import Any
 
 import numpy as np
 import torch
+from numpy import floating
 from torch.nn import Module
 from torch.utils.data import DataLoader
 
+# Global Loss function (for classification)
+loss_function = torch.nn.CrossEntropyLoss()
 
 class SimpleCNN(torch.nn.Module):
 
@@ -63,15 +66,20 @@ class SimpleCNN(torch.nn.Module):
             kernel_size (int, optional): Kernel size of the CNN. Defaults to 3.
             padding (int, optional): Padding of the CNN. Defaults to 1.
             stride (int, optional): Stride of the CNN. Defaults to 1.
+
+        Returns:
+            torch.nn.Sequential: Assembled CNN module
         """
         layers = []
 
-        for _ in range(depth):
+        for i in range(depth):
             layers.append(
-                torch.nn.Conv2d(in_channels, out_channels, kernel_size, padding=padding, stride=stride),
+                torch.nn.Conv2d(in_channels if i == 0 else out_channels,
+                                out_channels, kernel_size, padding=padding,
+                                stride=stride if i == 0 else 1),
             )
             layers.append(torch.nn.BatchNorm2d(out_channels))
-            layers.append(torch.nn.ReLU)
+            layers.append(torch.nn.ReLU())
         return torch.nn.Sequential(*layers)
 
     def __init_weights(self) -> None:
@@ -106,42 +114,58 @@ class SimpleCNN(torch.nn.Module):
 
 def train (
         model : torch.nn.Module,
-        data : DataLoader,
-        optimizer : torch.optim.Optimizer,
-        TOTAL_EPOCHES : int = 1000,
+        training_data : DataLoader,
+        validation_data : DataLoader,
+        optimizer : torch.optim.Optimizer = None,
+        TOTAL_EPOCHES : int = 100,
         THRESH : float = float('-inf'),
         verbose : bool = False,
-        ) -> tuple[Module, list[Any]]:
+        device: torch.device = torch.device('cpu')
+        ) -> tuple[Module, list[Any], list[Any], list[Any]]:
     """
     Trains CNN model on a given set of data
 
     Args:
         model (torch.nn.Module) : The model to be trained
-        data (DataLoader)       : Data used to train the model
-        optimizer (torch.optim.Optimizer) : Optimizer used to train the model
+        training_data (DataLoader) : Data used to train the model
+        validation_data (DataLoader) : Data used to validate the model after every epoch
+        optimizer (torch.optim.Optimizer, optional) : Optimizer used to train the model. Defaults to Adam with lr of 0.001.
         TOTAL_EPOCHES (int, optional) : Number of epochs to train the model before force end. Defaults to 1000.
         THRESH (float, optional) : Threshold for delta loss used in deciding early stop. Defaults to -infinity (off)
         verbose (bool, optional) : Turns on verbose output mode when set to True. Defaults to False.
+        device (torch.device) : Device used to evaluate the model.
 
     Returns:
-        Tuple[torch.nn.Module, list[Any]]: Trained model and average loss per epoch
+        Tuple[torch.nn.Module, list[Any], tuple[int, int]:
+        Trained model, average loss per epoch during training,
+        average loss per epoch during validation, and accuracy of validation per epoch.
     """
     # Global Vars.
-    criterion = torch.nn.CrossEntropyLoss()
+    criterion = loss_function.to(device)
+    model = model.to(device)
+
+    if optimizer is None:
+        optimizer = torch.optim.Adam(model.parameters(), lr=0.001)
 
     # Running statistics
-    loss_tracker = []
+    training_tracker = []
+    validation_tracker = []
     prev_loss = 100.
+    accuracy = []
 
     for epoch in range(TOTAL_EPOCHES):
-        if verbose and epoch % 100 == 0:                    # Verbose Logging
+        if verbose and epoch % 10 == 0:                    # Verbose Logging
             print(f"\t\tEpoch {epoch+1}/{TOTAL_EPOCHES}")
 
+        # Training
         model.train()
 
-        loss_per_epoch: list[float] = []
+        training_loss_per_epoch: list[float] = []
 
-        for inputs, class_targets in data:
+        for inputs, class_targets in training_data:
+
+            inputs = inputs.to(device)
+            class_targets = class_targets.to(device)
 
             # Reset Gradient / Forward Pass
             optimizer.zero_grad()
@@ -156,17 +180,81 @@ def train (
             # Update model parameters
             optimizer.step()
 
-            loss_per_epoch.append(loss.item())
+            training_loss_per_epoch.append(loss.item())
 
-        avg_loss = np.mean(loss_per_epoch)
-        loss_tracker.append(avg_loss)
+        training_tracker.append(np.mean(training_loss_per_epoch))
 
-        if verbose and epoch % 100 == 0:                    # Verbose Logging
-            print(f"\t\t\t{avg_loss=}")
+        # Validation
+        avg_loss = evaluate(model, validation_data, validation_tracker, accuracy, device=device)
 
-        if abs(prev_loss - avg_loss) < THRESH: #stopping condition
+        if verbose and epoch % 10 == 0:                    # Verbose Logging
+            print(f"\t\t\ttraining avg_loss={training_tracker[-1]:.4f}")
+            print(f"\t\t\tvalidation avg_loss={avg_loss:.4f}")
+            print(f"\t\t\taccuracy={accuracy[-1]:.2f}%")
+
+        if abs(prev_loss - avg_loss) < THRESH: #early-stopping condition
             break
         prev_loss = avg_loss
-    return model, loss_tracker
+    return model, training_tracker, validation_tracker, accuracy
 
 
+
+def evaluate(
+        model: Module,
+        validation_data: DataLoader,
+        validation_tracker : list[Any] = None,
+        accuracy: list[Any] = None,
+        device: torch.device = torch.device('cpu')
+) -> floating[Any]:
+    """
+    Evaluates CNN model on a given set of data to evaluate statistics of average loss and accuracy
+
+    Args:
+        model (torch.nn.Module) : The model to be evaluated
+        validation_data (DataLoader) : Data used to evaluate the model
+        validation_tracker (list[Any], optional) : Tracker used to evaluate the model. Done in place.
+        If none provided, function creates its own list and discards it.
+        accuracy (list[Any], optional) : Accuracy of the model. Done in place.
+        If none provided, function creates its own list and discards it.
+        device (torch.device) : Device used to evaluate the model.
+
+    Return
+        (floating[Any]): Average loss for batch
+    """
+
+    if validation_tracker is None:
+        validation_tracker = list()
+    if accuracy is None:
+        accuracy = list()
+    criterion = loss_function.to(device)
+
+    model.eval()
+
+    model = model.to(device)
+
+    correct = 0
+    total = 0
+    validation_loss_per_epoch: list[float] = []
+
+    with torch.no_grad():
+        for inputs, class_targets in validation_data:
+            inputs = inputs.to(device)
+            class_targets = class_targets.to(device)
+
+            # Forward Pass
+            outputs = model(inputs)
+
+            # Compute Loss
+            loss = criterion(outputs, class_targets)
+            validation_loss_per_epoch.append(loss.item())
+
+            # Apply 1-hot max to classify
+            predicted = torch.max(outputs.data, 1)[1]
+            correct += (predicted == class_targets).sum().item()
+            total += class_targets.size(0)
+
+    # In place operations
+    accuracy.append(100. * correct / total)  # convert to percentage
+    avg_loss = np.mean(validation_loss_per_epoch)
+    validation_tracker.append(avg_loss)
+    return avg_loss

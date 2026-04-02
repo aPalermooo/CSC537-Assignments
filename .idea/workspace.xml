@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4e74f2a8-0b76-4ec9-b2cb-ba90a87d8b63" name="Changes" comment="homework 3 data unpacked">
+    <list default="true" id="4e74f2a8-0b76-4ec9-b2cb-ba90a87d8b63" name="Changes" comment="homework 3 custom CNN class implemented">
+      <change afterPath="$PROJECT_DIR$/HMWK3/experiments.ipynb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/HMWK3/cnn.py" beforeDir="false" afterPath="$PROJECT_DIR$/HMWK3/cnn.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HMWK3/dataset/testing.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/HMWK3/dataset/testing.pkl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HMWK3/dataset/training.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/HMWK3/dataset/training.pkl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HMWK3/dataset/validation.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/HMWK3/dataset/validation.pkl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/HMWK3/unpacker.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/HMWK3/unpacker.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HMWK3/unpacker.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,8 +18,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Python Script" />
         <option value="Jupyter Notebook" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
@@ -78,24 +81,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "Python.generator.executor": "Run",
-    "Python.gradient_descent.executor": "Run",
-    "Python.logger.executor": "Run",
-    "Python.plotter.executor": "Run",
-    "Python.unpacker.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "master",
-    "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "C:/Users/apale/Documents/NeuralNetwork/HMWK3",
-    "run.code.analysis.last.selected.profile": "aDefault",
-    "settings.editor.selected.configurable": "vcs.log"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;Python.generator.executor&quot;: &quot;Run&quot;,
+    &quot;Python.gradient_descent.executor&quot;: &quot;Run&quot;,
+    &quot;Python.logger.executor&quot;: &quot;Run&quot;,
+    &quot;Python.plotter.executor&quot;: &quot;Run&quot;,
+    &quot;Python.unpacker.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/apale/Documents/NeuralNetwork/HMWK3&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;aDefault&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\apale\Documents\NeuralNetwork\HMWK3" />
@@ -447,7 +450,15 @@
       <option name="project" value="LOCAL" />
       <updated>1775014304677</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="homework 3 custom CNN class implemented">
+      <option name="closed" value="true" />
+      <created>1775022729112</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1775022729112</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -466,7 +477,6 @@
       <path value="$PROJECT_DIR$" />
       <path value="$PROJECT_DIR$/HMWK1" />
     </ignored-roots>
-    <MESSAGE value="main formulas implemented" />
     <MESSAGE value="rename data files" />
     <MESSAGE value="basic implementation" />
     <MESSAGE value="tolerance implementation" />
@@ -491,7 +501,8 @@
     <MESSAGE value="documentation complete" />
     <MESSAGE value="homework 3 init commit" />
     <MESSAGE value="homework 3 data unpacked" />
-    <option name="LAST_COMMIT_MESSAGE" value="homework 3 data unpacked" />
+    <MESSAGE value="homework 3 custom CNN class implemented" />
+    <option name="LAST_COMMIT_MESSAGE" value="homework 3 custom CNN class implemented" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4e74f2a8-0b76-4ec9-b2cb-ba90a87d8b63" name="Changes" comment="homework 3 reformat markup">
+    <list default="true" id="4e74f2a8-0b76-4ec9-b2cb-ba90a87d8b63" name="Changes" comment="homework 3 coding complete">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HMWK3/dataset/testing.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/HMWK3/dataset/testing.pkl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HMWK3/cnn.py" beforeDir="false" afterPath="$PROJECT_DIR$/HMWK3/cnn.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/HMWK3/dataset/training.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/HMWK3/dataset/training.pkl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/HMWK3/dataset/validation.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/HMWK3/dataset/validation.pkl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/HMWK3/experiments.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/HMWK3/experiments.ipynb" afterDir="false" />
@@ -473,7 +473,15 @@
       <option name="project" value="LOCAL" />
       <updated>1775091972659</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="homework 3 coding complete">
+      <option name="closed" value="true" />
+      <created>1775115592874</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1775115592874</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -492,7 +500,6 @@
       <path value="$PROJECT_DIR$" />
       <path value="$PROJECT_DIR$/HMWK1" />
     </ignored-roots>
-    <MESSAGE value="tolerance implementation" />
     <MESSAGE value="batch system implemented" />
     <MESSAGE value="some formatting; shuffle" />
     <MESSAGE value="implement testing features" />
@@ -517,7 +524,8 @@
     <MESSAGE value="homework 3 custom CNN class implemented" />
     <MESSAGE value="homework 3 part 1 &amp; 2 complete" />
     <MESSAGE value="homework 3 reformat markup" />
-    <option name="LAST_COMMIT_MESSAGE" value="homework 3 reformat markup" />
+    <MESSAGE value="homework 3 coding complete" />
+    <option name="LAST_COMMIT_MESSAGE" value="homework 3 coding complete" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

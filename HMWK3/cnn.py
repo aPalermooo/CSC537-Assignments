@@ -145,7 +145,7 @@ def train (
     model = model.to(device)
 
     if optimizer is None:
-        optimizer = torch.optim.Adam(model.parameters(), lr=0.001)
+        optimizer = torch.optim.Adam(model.parameters(), lr=0.001, weight_decay=0.0001)
 
     # Running statistics
     training_tracker = []

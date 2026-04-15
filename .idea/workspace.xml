@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4e74f2a8-0b76-4ec9-b2cb-ba90a87d8b63" name="Changes" comment="homework 3 coding complete">
+    <list default="true" id="4e74f2a8-0b76-4ec9-b2cb-ba90a87d8b63" name="Changes" comment="homework 3 final">
+      <change afterPath="$PROJECT_DIR$/HMWK4/LSTM.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HMWK4/SimpleRNN.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HMWK3/cnn.py" beforeDir="false" afterPath="$PROJECT_DIR$/HMWK3/cnn.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HMWK3/dataset/training.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/HMWK3/dataset/training.pkl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HMWK3/dataset/validation.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/HMWK3/dataset/validation.pkl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/HMWK3/experiments.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/HMWK3/experiments.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HMWK3/unpacker.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/HMWK3/unpacker.ipynb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -481,7 +479,15 @@
       <option name="project" value="LOCAL" />
       <updated>1775115592874</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="homework 3 final">
+      <option name="closed" value="true" />
+      <created>1775189113697</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1775189113697</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -500,7 +506,6 @@
       <path value="$PROJECT_DIR$" />
       <path value="$PROJECT_DIR$/HMWK1" />
     </ignored-roots>
-    <MESSAGE value="batch system implemented" />
     <MESSAGE value="some formatting; shuffle" />
     <MESSAGE value="implement testing features" />
     <MESSAGE value="nightly 1/29" />
@@ -525,7 +530,8 @@
     <MESSAGE value="homework 3 part 1 &amp; 2 complete" />
     <MESSAGE value="homework 3 reformat markup" />
     <MESSAGE value="homework 3 coding complete" />
-    <option name="LAST_COMMIT_MESSAGE" value="homework 3 coding complete" />
+    <MESSAGE value="homework 3 final" />
+    <option name="LAST_COMMIT_MESSAGE" value="homework 3 final" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

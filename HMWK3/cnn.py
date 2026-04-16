@@ -249,7 +249,7 @@ def evaluate(
             validation_loss_per_epoch.append(loss.item())
 
             # Apply 1-hot max to classify
-            predicted = torch.max(outputs.data, 1)[1]
+            predicted = torch.max(outputs.raw_data, 1)[1]
             correct += (predicted == class_targets).sum().item()
             total += class_targets.size(0)
 

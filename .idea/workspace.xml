@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4e74f2a8-0b76-4ec9-b2cb-ba90a87d8b63" name="Changes" comment="homework 4 generator documentation">
-      <change afterPath="$PROJECT_DIR$/HMWK4/RNN.py" afterDir="false" />
+    <list default="true" id="4e74f2a8-0b76-4ec9-b2cb-ba90a87d8b63" name="Changes" comment="homework 4 nightly">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HMWK4/SimpleRNN.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/HMWK4/RNN.py" beforeDir="false" afterPath="$PROJECT_DIR$/HMWK4/RNN.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -512,7 +511,15 @@
       <option name="project" value="LOCAL" />
       <updated>1776379206794</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="homework 4 nightly">
+      <option name="closed" value="true" />
+      <created>1776419444401</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1776419444401</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -531,7 +538,6 @@
       <path value="$PROJECT_DIR$" />
       <path value="$PROJECT_DIR$/HMWK1" />
     </ignored-roots>
-    <MESSAGE value="Experiment 1 complete" />
     <MESSAGE value="Coding Complete" />
     <MESSAGE value="Comment Code" />
     <MESSAGE value="Homework 1" />
@@ -556,7 +562,8 @@
     <MESSAGE value="homework 4 init" />
     <MESSAGE value="homework 4 generator" />
     <MESSAGE value="homework 4 generator documentation" />
-    <option name="LAST_COMMIT_MESSAGE" value="homework 4 generator documentation" />
+    <MESSAGE value="homework 4 nightly" />
+    <option name="LAST_COMMIT_MESSAGE" value="homework 4 nightly" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

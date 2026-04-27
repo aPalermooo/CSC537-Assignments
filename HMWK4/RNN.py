@@ -1,5 +1,5 @@
 ##############################################################################
-# Name:           SimpleRNN.py
+# Name:           RNN.py
 # Author:         Xander Palermo <ajp2s@missouristate.edu>
 # Description:
 # Date:           27 April 2026
@@ -8,6 +8,7 @@
 # Professor:      Mukulika Ghosh
 # Assignment:     Assignment 4
 ##############################################################################
+import pickle
 from typing import Any
 
 import numpy as np
@@ -18,9 +19,16 @@ from torch.utils.data import DataLoader
 # Global Loss function
 loss_function = torch.nn.CrossEntropyLoss()
 
+TRANSLATOR_PACKAGE_PATH = "dataset/translator/translator.pkl"
+
+with open(TRANSLATOR_PACKAGE_PATH, "rb") as f:
+    package = pickle.load(f)
+    char2idx, idx2char = package
+
+
 class RNN(torch.nn.Module):
 
-    def __init__(self, input_size, hidden_size, output_size, isLSTM : bool = False):
+    def __init__(self, input_size, hidden_size, output_size, isLSTM: bool = False):
         super(RNN, self).__init__()
 
         self.isLSTM = isLSTM
@@ -41,25 +49,26 @@ class RNN(torch.nn.Module):
             if isinstance(module, torch.nn.Embedding):
                 torch.nn.init.normal_(module.weight, mean=0, std=0.01)
 
-    def forward(self, x: torch.Tensor) -> torch.Tensor:
+    def forward(self, x: torch.Tensor, h: torch.Tensor = None) -> tuple[torch.Tensor, torch.Tensor]:
         x = self.embedding(x)
-        x, _ = self.rnn(x)
+        x, h = self.rnn(x, h)
         x = self.fc(x)
-        return x
+        return x, h
+
 
 def train(
-    model: torch.nn.Module,
-    training_data : DataLoader,
-    validation_data : DataLoader,
-    training_tracker : list[Any] = None,
-    validation_tracker : list[Any] = None,
-    optimizer: torch.optim.Optimizer = None,
-    TOTAL_EPOCHS: int = 100,
-    THRESH : float = float('-inf'),
-    verbose : bool = False,
-    LOG_INTERVAL: int = 10,
-    device: torch.device = torch.device("cpu")
-    ) -> torch.nn.Module:
+        model: torch.nn.Module,
+        training_data: DataLoader,
+        validation_data: DataLoader,
+        training_tracker: list[Any] = None,
+        validation_tracker: list[Any] = None,
+        optimizer: torch.optim.Optimizer = None,
+        TOTAL_EPOCHS: int = 100,
+        THRESH: float = float('-inf'),
+        verbose: bool = False,
+        LOG_INTERVAL: int = 10,
+        device: torch.device = torch.device("cpu")
+) -> torch.nn.Module:
     """
     Trains RNN model on a given data set
 
@@ -94,84 +103,139 @@ def train(
 
     if training_tracker is None:
         training_tracker = list()
-
     if validation_tracker is None:
         validation_tracker = list()
-
     if optimizer is None:
-        optimizer = torch.optim.Adam(model.parameters(), lr=0.001)
+        optimizer = torch.optim.Adam(model.parameters(), lr=1e-3)
 
     for epoch in range(TOTAL_EPOCHS):
-        if verbose and epoch % LOG_INTERVAL == 0:                       # Verbose Logging
-            print(f"\t\tEpoch {epoch+1}/{TOTAL_EPOCHS}")
+        if verbose and epoch % LOG_INTERVAL == 0:  # Verbose Logging
+            print(f"\t\tEpoch {epoch + 1}/{TOTAL_EPOCHS}")
 
         model.train()
 
         training_loss_per_epoch: list[float] = []
 
         for inputs, targets in training_data:
-            inputs, targets = inputs.to(device), targets.to(device)     # Move data to device
+            inputs, targets = inputs.to(device), targets.to(device)  # Move data to device
 
-            optimizer.zero_grad()                                       # Forward Pass
-            output = model(inputs)
+            optimizer.zero_grad()  # Forward Pass
+            hidden = None
+            output, hidden = model(inputs, hidden)
 
-            loss = criterion(output, targets)                           # Calculate Loss
+            batch_size, seq_len, vocab_size = output.shape  # Calculate Loss
+            loss = criterion(output.view(batch_size * seq_len, vocab_size), targets.view(batch_size * seq_len))
 
-            loss.backward()                                             # Backward Pass
+            loss.backward()  # Backward Pass
 
-            optimizer.step()                                            # Update Model Parameters
+            optimizer.step()  # Update Model Parameters
 
             training_loss_per_epoch.append(loss.item())
 
         # Calculate statistics over epoch
 
         training_tracker.append(np.mean(training_loss_per_epoch))
-        avg_loss = evaluate(model, validation_data, validation_tracker, device=device)  # Validate
+        avg_loss = evaluate(model, validation_data, device=device)  # Validate
+        validation_tracker.append(avg_loss)
 
-        if verbose and epoch % LOG_INTERVAL == 0:                       # Verbose Logging
+        if verbose and epoch % LOG_INTERVAL == 0:  # Verbose Logging
             print(f"\t\t\ttraining avg_loss={training_tracker[-1]:.4f}")
             print(f"\t\t\tvalidation avg_loss={avg_loss:.4f}")
 
-        if abs(prev_loss - avg_loss) < THRESH:                          # Early stopping condition
+        if abs(prev_loss - avg_loss) < THRESH:  # Early stopping condition
             break
         prev_loss = avg_loss
     return model
 
 
 def evaluate(
-    model: torch.nn.Module,
-    validation_data : DataLoader,
-    validation_tracker : list[Any] = None,
-    device : torch.device = torch.device("cpu")
-    ) -> floating[Any]:
+        model: torch.nn.Module,
+        validation_data: DataLoader,
+        device: torch.device = torch.device("cpu")
+) -> floating[Any]:
     """
     Evaluates RNN model on a given data set (No changes made to trainable parameters)
 
     Args:
         model (torch.nn.Module): RNN model
         validation_data (DataLoader): Data set used to observe performance of RNN model
-        validation_tracker (list[Any], optional): empty list used to preserve data collected on tracking evaluation of model
         device (torch.device, optional): device used for training; defaults to cpu
 
     Returns:
         Mean loss of model calculated from all evaluation cases
     """
 
-    if validation_tracker is None:
-        validation_tracker = list()
-
     criterion = loss_function.to(device)
     model = model.to(device)
+    loss_tracker = []
 
     model.eval()
 
     with torch.no_grad():
         for inputs, targets in validation_data:
-            inputs, targets = inputs.to(device), targets.to(device)         # Move data to device
+            inputs, targets = inputs.to(device), targets.to(device)  # Move data to device
 
-            output = model(inputs)                                          # Forward Pass
+            hidden = None
+            output, hidden = model(inputs, hidden)
 
-            loss = criterion(output, targets)                               # Calculate Loss
+            batch_size, seq_len, vocab_size = output.shape  # Calculate Loss
+            loss = criterion(output.view(batch_size * seq_len, vocab_size), targets.view(batch_size * seq_len))
 
-            validation_tracker.append(loss.item())
-    return np.mean(validation_tracker)
+            loss_tracker.append(loss.item())
+    return np.mean(loss_tracker)
+
+
+def generate(
+        model: torch.nn.Module,
+        input: str,
+        steps: int = 200,
+        temperature: float = 1.0,
+        device: torch.device = torch.device("cpu")
+) -> str:
+    """
+    Generates a string of text based on previous training and given string
+
+    Args:
+        model:
+        input:
+        steps:
+        temperature:
+        device:
+
+    Returns:
+
+    """
+
+    model.eval()
+    model = model.to(device)
+
+    generated_text = []
+    with torch.no_grad():
+        tokens = [char2idx[char] for char in input.lower()]  # Prepare Input
+        seed = torch.tensor(tokens, dtype=torch.long).unsqueeze(0).to(device)
+
+        hidden = None
+        output, hidden = model(seed, hidden)
+
+        logits = output[:, -1, :] / temperature
+        next_char = torch.multinomial(torch.softmax(logits, dim=-1), num_samples=1)
+
+        generated_text.append(idx2char[next_char.item()])
+
+        for _ in range(steps - 1):
+            seed = next_char.reshape(1, 1)  # The current output is the NEXT input
+            output, hidden = model(seed, hidden)  # Forward pass
+            last_step_logits = output[:, -1, :] / temperature  # Use only the last time step
+            next_char = torch.multinomial(torch.softmax(last_step_logits, dim=-1),
+                                          num_samples=1)  # softmax and then sample on
+            generated_text.append(idx2char[next_char.item()])  # append the result
+    return "".join(generated_text)
+
+
+if __name__ == "__main__":
+    model = RNN(len(char2idx), 64, len(char2idx))
+    print(generate(
+        model,
+        "The ",
+        temperature=1.0,
+        device=torch.device("cpu")))

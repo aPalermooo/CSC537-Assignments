@@ -1,9 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4e74f2a8-0b76-4ec9-b2cb-ba90a87d8b63" name="Changes" comment="homework 4 nightly">
+    <list default="true" id="4e74f2a8-0b76-4ec9-b2cb-ba90a87d8b63" name="Changes" comment="moving computers">
+      <change afterPath="$PROJECT_DIR$/HMWK4/ShakespeareDataset.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HMWK4/experiments.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/NeuralNetwork.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/NeuralNetwork.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HMWK1/generator.py" beforeDir="false" afterPath="$PROJECT_DIR$/HMWK1/generator.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HMWK3/experiments.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/HMWK3/experiments.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HMWK4/LSTM.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/HMWK4/RNN.py" beforeDir="false" afterPath="$PROJECT_DIR$/HMWK4/RNN.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HMWK4/generator.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/HMWK4/generator.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HMWK4/translator.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,7 +87,9 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;Python.RNN.executor&quot;: &quot;Run&quot;,
     &quot;Python.generator.executor&quot;: &quot;Run&quot;,
     &quot;Python.gradient_descent.executor&quot;: &quot;Run&quot;,
     &quot;Python.logger.executor&quot;: &quot;Run&quot;,
@@ -87,13 +98,55 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;ai.playground.ignore.import.keys.banner.in.settings&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/apale/Documents/NeuralNetwork/HMWK3&quot;,
     &quot;run.code.analysis.last.selected.profile&quot;: &quot;aDefault&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
+  <component name="RdControllerToolWindowsLayoutState" isNewUi="true">
+    <layout>
+      <window_info id="Bookmarks" side_tool="true" />
+      <window_info id="Merge Requests" />
+      <window_info id="Backup and Sync History" />
+      <window_info id="Learn" show_stripe_button="false" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22583008" />
+      <window_info id="Commit" order="1" weight="0.25" />
+      <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
+      <window_info id="Pull Requests" order="3" sideWeight="0.500651" weight="0.22583008" />
+      <window_info id="AI Playground" order="4" sideWeight="0.49934894" side_tool="true" weight="0.22583008" />
+      <window_info anchor="bottom" id="Database Changes" />
+      <window_info anchor="bottom" id="TypeScript" />
+      <window_info anchor="bottom" id="Find" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="0" />
+      <window_info anchor="bottom" id="Problems" order="1" />
+      <window_info anchor="bottom" id="Problems View" order="2" weight="0.32999998" />
+      <window_info anchor="bottom" id="Terminal" order="3" weight="0.32999998" />
+      <window_info anchor="bottom" id="Services" order="4" weight="0.32999998" />
+      <window_info anchor="bottom" id="Python Packages" order="5" weight="0.32999998" />
+      <window_info anchor="bottom" id="Python Console" order="6" weight="0.32999998" />
+      <window_info active="true" anchor="bottom" id="Run" order="7" visible="true" weight="0.22600001" />
+      <window_info anchor="bottom" id="HfCacheToolWindow" order="8" weight="0.32999998" />
+      <window_info anchor="bottom" id="PythonProcessOutput" order="9" weight="0.32999998" />
+      <window_info anchor="bottom" id="Jupyter" order="10" weight="0.32999998" />
+      <window_info anchor="bottom" id="TODO" order="11" weight="0.32999998" />
+      <window_info anchor="bottom" id="File Transfer" order="12" weight="0.32999998" />
+      <window_info anchor="right" id="Endpoints" />
+      <window_info anchor="right" id="Coverage" side_tool="true" />
+      <window_info anchor="right" id="SciView" />
+      <window_info anchor="right" content_ui="combo" id="Notifications" order="0" weight="0.25" />
+      <window_info anchor="right" id="AIAssistant" order="1" weight="0.25" />
+      <window_info anchor="right" id="Database" order="2" weight="0.25" />
+      <window_info anchor="right" id="Gradle" order="3" weight="0.25" />
+      <window_info anchor="right" id="Maven" order="4" weight="0.25" />
+      <window_info anchor="right" id="Plots" order="5" weight="0.1" />
+      <window_info anchor="right" id="Jupyter Variables" order="6" side_tool="true" weight="0.32983398" />
+    </layout>
+  </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\apale\Documents\NeuralNetwork\HMWK3" />
@@ -105,7 +158,32 @@
       <recent name="C:\Users\apale\Documents\NeuralNetwork\HMWK1" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.unpacker">
+  <component name="RunManager" selected="Python.RNN">
+    <configuration name="RNN" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="NeuralNetwork" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="SDK_NAME" value="C:\Users\apale\Documents\NeuralNetwork\env" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/HMWK4" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="RUN_TOOL" value="" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/HMWK4/RNN.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="generator" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="NeuralNetwork" />
       <option name="ENV_FILES" value="" />
@@ -119,6 +197,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="RUN_TOOL" value="" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/HMWK2/generator.py" />
       <option name="PARAMETERS" value="" />
@@ -143,6 +222,7 @@
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="RUN_TOOL" value="" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/HMWK1/logger.py" />
       <option name="PARAMETERS" value="" />
@@ -166,6 +246,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="RUN_TOOL" value="" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/HMWK2/plotter.py" />
       <option name="PARAMETERS" value="" />
@@ -189,6 +270,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="RUN_TOOL" value="" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/HMWK3/unpacker.py" />
       <option name="PARAMETERS" value="" />
@@ -201,6 +283,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.RNN" />
         <item itemvalue="Python.unpacker" />
         <item itemvalue="Python.plotter" />
         <item itemvalue="Python.generator" />
@@ -211,6 +294,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
+        <option value="bundled-js-predefined-d6986cc7102b-9b0f141eb926-JavaScript-PY-253.29346.308" />
         <option value="bundled-python-sdk-ca5e2b39c7df-6e1f45a539f7-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-253.29346.308" />
       </set>
     </attachedChunks>
@@ -222,6 +306,16 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1769496511050</updated>
+      <workItem from="1776827541017" duration="12646000" />
+      <workItem from="1776908353825" duration="4447000" />
+      <workItem from="1776912918488" duration="44000" />
+      <workItem from="1776912986695" duration="1892000" />
+      <workItem from="1776915835833" duration="12000" />
+      <workItem from="1776915865321" duration="7525000" />
+      <workItem from="1776959713356" duration="8936000" />
+      <workItem from="1777016678226" duration="24000" />
+      <workItem from="1777017801517" duration="4473000" />
+      <workItem from="1777058704353" duration="5158000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <option name="closed" value="true" />
@@ -519,8 +613,19 @@
       <option name="project" value="LOCAL" />
       <updated>1776419444401</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="moving computers">
+      <option name="closed" value="true" />
+      <created>1776825288062</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1776825288062</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -535,10 +640,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <ignored-roots>
-      <path value="$PROJECT_DIR$" />
       <path value="$PROJECT_DIR$/HMWK1" />
     </ignored-roots>
-    <MESSAGE value="Coding Complete" />
     <MESSAGE value="Comment Code" />
     <MESSAGE value="Homework 1" />
     <MESSAGE value="init assignment 2" />
@@ -563,7 +666,8 @@
     <MESSAGE value="homework 4 generator" />
     <MESSAGE value="homework 4 generator documentation" />
     <MESSAGE value="homework 4 nightly" />
-    <option name="LAST_COMMIT_MESSAGE" value="homework 4 nightly" />
+    <MESSAGE value="moving computers" />
+    <option name="LAST_COMMIT_MESSAGE" value="moving computers" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -575,5 +679,8 @@
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/NeuralNetwork$RNN.coverage" NAME="RNN Coverage Results" MODIFIED="1776892286376" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/HMWK4" />
   </component>
 </project>

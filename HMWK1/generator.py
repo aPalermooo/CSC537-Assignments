@@ -1,5 +1,5 @@
 ##############################################################################
-# Name:           generator.py
+# Name:           unpacker.py
 # Author:         Xander Palermo <ajp2s@missouristate.edu>
 # Description:    Randomly generates data to be used to train and test Linear Regression Models
 #                  Using set weights
